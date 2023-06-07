@@ -1,11 +1,11 @@
 ---
-name: Feature Request
-about: Suggest an idea for this project
-title: ''
-labels: enhancement
-assignees: ''
+name: Richiesta di funzionalità
+about: Suggerisci un'idea per questo progetto
+Titolo: ''
+Etichette: Miglioramento
+Assegnato a: ''
 
 ---
 
-**What would you like to happen?**
-Add a clear and concise description of your idea to improve the project.
+**Cosa vorresti che accadesse?**
+Aggiungete una descrizione chiara e concisa della vostra idea per migliorare il progetto.
