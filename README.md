@@ -6,79 +6,79 @@
 
 [![Creative Commons License](https://licensebuttons.net/l/by-sa/4.0/88x31.png)](https://creativecommons.org/licenses/by-sa/4.0/ "CC BY-SA 4.0")
 
-Welcome to the official repository for the Open Web Application Security Project® (OWASP®) Web Security Testing Guide (WSTG). The WSTG is a comprehensive guide to testing the security of web applications and web services. Created by the collaborative efforts of security professionals and dedicated volunteers, the WSTG provides a framework of best practices used by penetration testers and organizations all over the world.
+Benvenuti nella traduzione italiana del repository ufficiale della Open Web Application Security Project® (OWASP®) Web Security Testing Guide (WSTG). La WSTG è una guida completa per testare la sicurezza delle applicazioni e dei servizi web. Creata grazie alla collaborazione di professionisti della sicurezza e di volontari, la WSTG fornisce un quadro delle migliori pratiche utilizzate dai penetration tester e dalle organizzazioni di tutto il mondo.
 
-We are currently working on release version 5.0. You can [read the current document here on GitHub](https://github.com/OWASP/wstg/tree/master/document).
+Attualmente è in lavorazione la versione 5.0. È possibile [leggere l'ultimo documento qui su Github](https://github.com/OWASP/wstg/tree/master/document).
 
-For the last stable release, [check release 4.2](https://github.com/OWASP/wstg/releases/tag/v4.2). Also available [online](https://owasp.org/www-project-web-security-testing-guide/v42/).
+A questo indirizzo invece l'ultima versione stabile, [la 4.2](https://github.com/OWASP/wstg/releases/tag/v4.2). Disponibile anche [online](https://owasp.org/www-project-web-security-testing-guide/v42/).
 
-- [How To Reference WSTG Scenarios](#how-to-reference-wstg-scenarios)
+- [Come fare riferimento agli scenari WSTG](#how-to-reference-wstg-scenarios)
     - [Linking](#linking)
-- [Contributions, Feature Requests, and Feedback](#contributions-feature-requests-and-feedback)
-- [Chat With Us](#chat-with-us)
-- [Project Leaders](#project-leaders)
-- [Core Team](#core-team)
-- [Translations](#translations)
+- [Contributi, richieste di funzioni e feedback](#contributions-feature-requests-and-feedback)
+- [Chatta con noi](#chat-with-us)
+- [Responsabili del progetto](#project-leaders)
+- [Team di base](#core-team)
+- [Traduzioni](#translations)
 
-## How To Reference WSTG Scenarios
+## Come fare riferimento agli scenari WSTG
 
-Each scenario has an identifier in the format `WSTG-<category>-<number>`, where: 'category' is a 4 character upper case string that identifies the type of test or weakness, and 'number' is a zero-padded numeric value from 01 to 99. For example:`WSTG-INFO-02` is the second Information Gathering test.
+Ogni scenario ha un identificatore nel formato WSTG `WSTG-<category>-<number>`,  dove: 'category' è una stringa di 4 caratteri maiuscoli che identifica il tipo di test o di vulnerabilità e 'number' è un valore numerico con riempimento a zero da 01 a 99. Ad esempio:`WSTG-INFO-02` è il secondo test di Information Gathering.
 
-The identifiers may change between versions. Therefore, it is preferable that other documents, reports, or tools use the format: `WSTG-<version>-<category>-<number>`, where: 'version' is the version tag with punctuation removed. For example: `WSTG-v42-INFO-02` would be understood to mean specifically the second Information Gathering test from version 4.2.
+Gli identificatori possono cambiare da una versione all'altra. Pertanto, è preferibile che altri documenti, report o strumenti utilizzino il formato: `WSTG-<version>-<category>-<number>`,dove: 'version' è il tag della versione senza punteggiatura. Ad esempio: `WSTG-v42-INFO-02` si intende specificamente il secondo test di Information Gathering della versione 4.2.
 
-If identifiers are used without including the `<version>` element, they should be assumed to refer to the latest Web Security Testing Guide content. Obviously as the guide grows and changes this becomes problematic, which is why writers or developers should include the version element.
+Se si utilizzano identificatori senza includere l'elemento `<version>` si deve ritenere che si riferiscano al contenuto più recente della Web Security Testing Guide. Ovviamente, man mano che la guida cresce e cambia, questo diventa problematico, ed è per questo che gli autori o gli sviluppatori dovrebbero includere l'elemento version.
 
 ### Linking
 
-Linking to Web Security Testing Guide scenarios should be done using versioned links not `stable` or `latest`, which will definitely change with time. However, it is the project team's intention that versioned links not change. For example: `https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/01-Information_Gathering/02-Fingerprint_Web_Server.html`. Note: the `v42` element refers to version 4.2.
+I collegamenti agli scenari della Guida devono essere effettuati utilizzando link con versione, non `stable` o `latest`,che cambierà sicuramente con il tempo. Tuttavia, è intenzione del team di progetto che i link versionati non cambino. Ad esempio: `https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/01-Information_Gathering/02-Fingerprint_Web_Server.html`.  Nota: l'elemento  `v42` si riferisce alla versione 4.2.
 
-## Contributions, Feature Requests, and Feedback
+## Contributi, richieste di funzioni e feedback
 
-We are actively inviting new contributors! To start, read the [contribution guide](CONTRIBUTING.md).
+Accettiamo attivamente nuovi collaboratori! Per iniziare, leggi la [guida ai contributi](CONTRIBUTING.md).
 
-First time here? Here are [GitHub's suggestions for first-time contributors](https://github.com/OWASP/wstg/contribute) to this repository.
+È la prima volta che partecipi? Ecco i [suggerimenti di GitHub per chi contribuisce per la prima volta](https://github.com/OWASP/wstg/contribute) a questo repository.
 
-This project is only possible thanks to the work of many dedicated volunteers. Everyone is encouraged to help in ways large and small. Here are a few ways you can help:
+Questo progetto è possibile solo grazie al lavoro di molti volontari. Tutti sono incoraggiati ad aiutare. Ecco alcuni modi per aiutare:
 
-- Read the current content and help us fix any spelling mistakes or grammatical errors.
-- Help with [translation](CONTRIBUTING.md#translation) efforts.
-- Choose an existing issue and submit a pull request to fix it.
-- Open a new issue to report an opportunity for improvement.
+- Leggere i contenuti attuali e aiutare a correggere eventuali errori di ortografia o grammatica.
+- Aiutare con le iniziative di [traduzione](CONTRIBUTING.md#translation).
+- Scegliere un problema esistente e inviare una richiesta pull per risolverlo.
+- Aprire un nuovo problema per segnalare un'opportunità di miglioramento.
 
-To learn how to contribute successfully, read the [contribution guide](CONTRIBUTING.md).
+Per imparare a contribuire con successo, leggere la [guida ai contributi](CONTRIBUTING.md).
 
-Successful contributors appear on [the project's list of authors, reviewers, or editors](document/1-Frontispiece/README.md).
+I contributori di successo appaiono nell'[elenco degli autori, revisori o redattori del progetto](document/1-Frontispiece/README.md).
 
-## Chat With Us
+## Chatta con noi
 
-We're easy to find on Slack:
+È facile trovare OWASP su Slack:
 
-1. Join the OWASP Group Slack with this [invitation link](https://owasp.org/slack/invite).
-2. Join this project's [channel, #testing-guide](https://app.slack.com/client/T04T40NHX/CJ2QDHLRJ).
+1. Unitevi al gruppo OWASP di Slack con questo [link di invito](https://owasp.org/slack/invite).
+2. Unitevi al [canale, #testing-guide](https://app.slack.com/client/T04T40NHX/CJ2QDHLRJ).
 
-Feel free to ask questions, suggest ideas, or share your best recipes.
+Sentitevi liberi di fare domande, suggerire idee o condividere le vostre migliori idee.
 
-You can @ us on Twitter [@owasp_wstg](https://twitter.com/owasp_wstg).
+Potete scrivere su Twitter a [@owasp_wstg](https://twitter.com/owasp_wstg).
 
-You can also join our [Google Group](https://groups.google.com/a/owasp.org/forum/#!forum/testing-guide-project).
+Potete anche unirvi al [Google Group](https://groups.google.com/a/owasp.org/forum/#!forum/testing-guide-project).
 
-## Project Leaders
+## Responsabili del progetto
 
 - [Rick Mitchell](https://github.com/kingthorin)
 - [Elie Saad](https://github.com/ThunderSon)
 
-## Core Team
+## Team di base
 
 - [Rejah Rehim](https://github.com/rejahrehim)
 - [Victoria Drake](https://github.com/victoriadrake)
 
-## Translations
+## Traduzioni
 
-- [Portuguese-BR](https://github.com/doverh/wstg-translations-pt)
-- [Russian](https://github.com/andrettv/WSTG/tree/master/WSTG-ru)
-- [French](https://github.com/clallier94/wstg-translation-fr)
-- [Persian (Farsi)](https://github.com/whoismh11/owasp-wstg-fa)
+- [Portoghese-BR](https://github.com/doverh/wstg-translations-pt)
+- [Russo](https://github.com/andrettv/WSTG/tree/master/WSTG-ru)
+- [Francese](https://github.com/clallier94/wstg-translation-fr)
+- [Persiano (Farsi)](https://github.com/whoismh11/owasp-wstg-fa)
 
 ---
 
-Open Web Application Security Project and OWASP are registered trademarks of the OWASP Foundation, Inc.
+Open Web Application Security Project e OWASP sono marchi registrati della OWASP Foundation, Inc.
