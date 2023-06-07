@@ -12,13 +12,13 @@ Attualmente è in lavorazione la versione 5.0. È possibile [leggere l'ultimo do
 
 A questo indirizzo invece l'ultima versione stabile, [la 4.2](https://github.com/OWASP/wstg/releases/tag/v4.2). Disponibile anche [online](https://owasp.org/www-project-web-security-testing-guide/v42/).
 
-- [Come fare riferimento agli scenari WSTG](#how-to-reference-wstg-scenarios)
+- [Come fare riferimento agli scenari WSTG](#come-fare-riferimento-agli-scenari-wstg)
     - [Linking](#linking)
-- [Contributi, richieste di funzioni e feedback](#contributions-feature-requests-and-feedback)
-- [Chatta con noi](#chat-with-us)
-- [Responsabili del progetto](#project-leaders)
-- [Team di base](#core-team)
-- [Traduzioni](#translations)
+- [Contributi, richieste di funzioni e feedback](#contributi-richieste-e-feedback)
+- [Chatta OWASP](#chatta-con-owasp)
+- [Responsabili del progetto](#responsabili-del-progetto)
+- [Team principale](#team-principale)
+- [Traduzioni](#traduzioni)
 
 ## Come fare riferimento agli scenari WSTG
 
@@ -49,7 +49,7 @@ Per imparare a contribuire con successo, leggere la [guida ai contributi](CONTRI
 
 I contributori di successo appaiono nell'[elenco degli autori, revisori o redattori del progetto](document/1-Frontispiece/README.md).
 
-## Chatta con noi
+## Chatta con OWASP
 
 È facile trovare OWASP su Slack:
 
@@ -67,7 +67,7 @@ Potete anche unirvi al [Google Group](https://groups.google.com/a/owasp.org/foru
 - [Rick Mitchell](https://github.com/kingthorin)
 - [Elie Saad](https://github.com/ThunderSon)
 
-## Team di base
+## Team principale
 
 - [Rejah Rehim](https://github.com/rejahrehim)
 - [Victoria Drake](https://github.com/victoriadrake)
@@ -78,6 +78,7 @@ Potete anche unirvi al [Google Group](https://groups.google.com/a/owasp.org/foru
 - [Russo](https://github.com/andrettv/WSTG/tree/master/WSTG-ru)
 - [Francese](https://github.com/clallier94/wstg-translation-fr)
 - [Persiano (Farsi)](https://github.com/whoismh11/owasp-wstg-fa)
+- [Italiano](https://github.com/Kaanis/wstg-translation-it)
 
 ---
 
