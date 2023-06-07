@@ -1,15 +1,15 @@
 ---
-name: Broken Link
-about: Report broken links
-title: ''
-labels: bug, help wanted, good first issue
-assignees: ''
+Nome: Link non funzionante
+Info: Report link non funzionante
+Titolo: ''
+Etichette: bug, richiesta di aiuto, primo problema
+Assegnato a: ''
 
 ---
 
-**What and where?**
-Please give the broken URL. Where is the link located?
+**Cosa e dove?**
+Indicare l'URL non funzionante. Dove si trova il link?
 
-Would you like to be assigned to this issue?
-Check the box if you will submit a PR to fix this issue. Please read CONTRIBUTING.md.
-- [ ] Assign me, please!
+Volete essere assegnati a questo problema?
+Selezionare la casella se si intende inviare una PR per risolvere questo problema. Si prega di leggere CONTRIBUTING.md.
+- [ ] Assegnami, per favore!
