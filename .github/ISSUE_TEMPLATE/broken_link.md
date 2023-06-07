@@ -1,6 +1,6 @@
 ---
-Nome: Link non funzionante
-Info: Report link non funzionante
+name: Link non funzionante
+about: Report link non funzionante
 Titolo: ''
 Etichette: bug, richiesta di aiuto, primo problema
 Assegnato a: ''
