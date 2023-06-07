@@ -1,7 +1,7 @@
 {
     "name": "Markdown Editing",
     "dockerFile": "Dockerfile",
-    // Set *default* container specific settings.json values on container create.
+    // Imposta i valori di settings.json specifici del container *default* alla creazione del container.
     "settings": {
         "terminal.integrated.shell.linux": "/bin/bash",
         "editor.formatOnType": true,
@@ -18,7 +18,7 @@
             "extends": "/root/workspace/wstg/.github/configs/.markdownlint.json"
         }
     },
-    // Add the IDs of extensions you want installed when the container is created.
+    // Aggiungi gli ID delle estensioni che si desidera installare alla creazione del container.
     "extensions": [
         "yzhang.markdown-all-in-one",
         "streetsidesoftware.code-spell-checker",
@@ -26,10 +26,10 @@
         "shd101wyy.markdown-preview-enhanced",
         "bierner.github-markdown-preview"
     ]
-    // Use 'forwardPorts' to make a list of ports inside the container available locally.
+    // Usa 'forwardPorts' per rendere disponibile localmente un elenco di porte all'interno del container.
     // "forwardPorts": [],
-    // Use 'postCreateCommand' to run commands after the container is created.
+    // Utilizza 'postCreateCommand' per eseguire comandi dopo la creazione del container.
     // "postCreateCommand": "uname -a",
-    // Uncomment to connect as a non-root user. See https://aka.ms/vscode-remote/containers/non-root.
+    // Toglie il commento per connettersi come utente non root. Vedere https://aka.ms/vscode-remote/containers/non-root.
     // "remoteUser": "vscode"
 }
