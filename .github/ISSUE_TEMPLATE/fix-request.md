@@ -1,18 +1,18 @@
 ---
-name: Fix Request
-about: Create a report to help us improve
-title: ''
-labels: revise, help wanted
-assignees: ''
+nome: Richiesta di modifica
+info: Crea un report per aiutarci a migliorare
+titolo: ''
+etichette: revisione, cercasi aiuto
+assegnatari: ''
 
 ---
 
-**What's the issue?**
-Describe the problem and why it should be fixed. Be concise and specific. Reference sections where appropriate.
+**Qual è il problema?**
+Descrivere il problema e il motivo per cui dovrebbe essere risolto. Cercare di essere concisi e specifici. Riferirsi alle sezioni dove è opportuno.
 
-**How do we solve it?**
-Clearly describe the solution you'd like to see implemented.
+**Come lo risolviamo?**
+Descrivere chiaramente la soluzione che si vorrebbe vedere implementata
 
-Would you like to be assigned to this issue?
-Check the box if you will submit a PR to fix this issue. Please read CONTRIBUTING.md.
-- [ ] Assign me, please!
+Vuoi essere assegnato a questo problema?
+Selezionare la casella se si intende inviare una PR per risolvere questo problema. Leggere CONTRIBUTING.md.
+- [ ] Assegnalo a me, per favore!
