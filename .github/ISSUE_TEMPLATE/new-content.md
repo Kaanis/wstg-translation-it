@@ -3,7 +3,7 @@ nome: Aggiungi nuovo contenuto
 info: Suggerisci aggiunte alla Testing Guide
 titolo: ''
 etichette: nuovo, richiesto aiuto
-assignees: ''
+assegnatari: ''
 
 ---
 
