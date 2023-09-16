@@ -1,3 +1,3 @@
 # pdf
 
-This directory contains github action dependencies for creation of the WSTG PDF.
+Questa directory contiene le dipendenze delle github actions necessarie per la creazione del PDF della WSTG.
