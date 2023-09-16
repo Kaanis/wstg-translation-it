@@ -1,52 +1,52 @@
 #!/bin/bash
-# Script to create the EPUB file for WSTG
-# Expected this to be run after PDF build
-# Some dependencies are resolved in PDF build
+# Script per creare l'EPUB file della WSTG
+# Questo script viene eseguito dopo la creazione del PDF
+# Alcune dipendenze sono risolte nella creazione del PDF
 
-# Clean and create required build folders
+# Pulisce e crea le cartelle di build richieste
 clean_build () {
-    # Clean the build folder
+    # Pulisce la cartella della build
     rm -rf build/epub
-    # Create the required build folders
+    # Crea le cartelle di build richieste
     mkdir -p build/epub
 }
 
-# Prepare build folder with necessary files
+# Prepara la cartella di build con i file necessari 
 prepare_build () {
-    # Extract version nuber from version tag
+    # Estrae il numero di versione dal tag di versione
     VERSION_NUMBER=`echo $VERSION | sed 's/v//'`
     METADATA_FILE="../../.github/epub/assets/epub-metadata.yaml"
-    # Copy images to the temporary folder to generate chapter wise PDFs
-    # Images are expected to be added to build during PDF build
+    # Copia le immagini nella cartella temporanea per generare PDF relativi ai capitoli
+    # Le immagini devono essere aggiunte alla build durante la creazione del PDF
     cp -r build/images build/epub/
 }
 
-# Create the Markdown file for the front cover and generate front cover with md-to-pdf
+# Crea il file di Markdown per la copertina anteriore e genera la copertina con md-to-pdf
 set_front_cover_vars () {
-# Create the cover image with versioned image if exists else use the default with version number
+# Crea l'immagine di copertina con il numero di versione dell'immagine se esistente altrimenti usa quella di default con numero di versione
 VERSIONED_COVER_IMAGE_FILE=images/book-cover-$VERSION.jpg
 if [[ -f "build/$VERSIONED_COVER_IMAGE_FILE" ]]; then
-    # If versioned cover image available set cover image option
+    # Se il numero di versione dell'immagine è esistente imposta le opzioni per l'immagine di copertina
     VERSIONED_COVER_IMAGE_FILE_OPTION="--epub-cover-image=$VERSIONED_COVER_IMAGE_FILE"
     VERSIONED_COVER_MARKDOWN_FILE=""
 else
     VERSIONED_COVER_IMAGE_FILE_OPTION=""
-    # Cover markdown expected to be generated during PDF build
+    # Il Markdown della copertina dovrebbe essere generato durante la creazione del PDF
     VERSIONED_COVER_MARKDOWN_FILE="../cover-$VERSION.md"
 
 fi
 
 }
 
-# Add page break after each chapter
+# Aggiunge l'interruzione di pagina dopo ogni capitolo
 add_page_break () {
     echo '<div style="page-break-after: always;"></div>'
 }
 
-# Replace internal markdown Links inside headings with html anchor tags (<a>)
-# within the respective heading tag ( <h1>, <h2> .. ) and link href as the heading text
-# eg: ## 0. [Foreword by Eoin Keary](0-Foreword/README.md)  ->  <h2><a href="Foreword by Eoin Keary">Foreword by Eoin Keary</a></h2>
-# spaces inside the href will be addressed in later steps
+# Rimpiazza i Link di markdown interni dentro gli headings con anchor tags html 
+# all'interno del rispettivo tag di intestazione ( <h1>, <h2> ... ) e l'href del link come testo dell'intestazione
+# esempio: ## 0. [Foreword by Eoin Keary](0-Foreword/README.md)  ->  <h2><a href="Foreword by Eoin Keary">Foreword by Eoin Keary</a></h2>
+# Gli spazi all'interno dell'href saranno gestiti successivamente.
 replace_internal_markdown_links_with_in_headers_with_html_tags () {
     sed 's/\(^#\{2\} \)\(\[\(.*\)\]\(.*\)\(\?\:\n\+\|$\)\)/<h2><a href=\"#\3\">\3<\/a><\/h2>/'  | \
     sed 's/\(^#\{1\} \)\([0-9. ]*\) \(\[\(.*\)\]\(.*\)\(\?\:\n\+\|$\)\)/<h1>\2 <a href=\"#\4\">\4<\/a><\/h1>/'  | \
@@ -170,7 +170,7 @@ set_front_cover_vars
 # Create chapter wise markdown files
 ls build/md | sort -n | while read x; do  preprocess_markdown_to_support_md_to_pdf $x >  build/epub/$x ; done
 
-# Remove TOC file
+# Rimuove il file TOC
 rm build/epub/document\>\>\>0-0.0_README.md
 
 cd build/epub/
