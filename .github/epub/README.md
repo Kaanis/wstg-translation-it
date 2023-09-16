@@ -1,3 +1,3 @@
 # epub
 
-This directory contains github action dependencies for creation of the WSTG EPUB.
+Questa directory contiene le dipendenze delle github actions necessarie per la creazione dell'EPUB della WSTG.
