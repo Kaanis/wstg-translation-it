@@ -43,7 +43,7 @@ add_page_break () {
     echo '<div style="page-break-after: always;"></div>'
 }
 
-# Rimpiazza i Link di markdown interni dentro gli headings con anchor tags html 
+# Rimpiazza i Link di markdown interni dentro gli headings con anchor tags html (<a>)
 # all'interno del rispettivo tag di intestazione ( <h1>, <h2> ... ) e l'href del link come testo dell'intestazione
 # esempio: ## 0. [Foreword by Eoin Keary](0-Foreword/README.md)  ->  <h2><a href="Foreword by Eoin Keary">Foreword by Eoin Keary</a></h2>
 # Gli spazi all'interno dell'href saranno gestiti successivamente.
@@ -57,88 +57,88 @@ replace_internal_markdown_links_with_in_headers_with_html_tags () {
     sed 's/\(^#\{5\} \)\([0-9. ]*\) \(\[\(.*\)\]\(.*\)\(\?\:\n\+\|$\)\)/<h5>\2 <a href=\"#\4\">\4<\/a><\/h5>/' $1
 }
 
-# Replace internal markdown Links with html anchor tags (<a>)
-# Set link href as the heading text, Remove subsection numbers from href.
-# Exclude links starts with http, make sure not to replace external links
-# eg: [testing browser storage](../11-Client-side_Testing/12-Testing_Browser_Storage.md) ->
+# Rimpiazza i Link di markdown interni dentro gli headings con anchor tags html (<a>)
+# Imposta l'href del link come testo dell'intestazione, rimuove i numeri delle sottosezioni dall'href.
+# Esclude i collegamenti che iniziano con http, assicurarsi di non sostituire i collegamenti esterni
+# esempio: [testing browser storage](../11-Client-side_Testing/12-Testing_Browser_Storage.md) ->
 #     <a href="Testing_Browser_Storage.md">testing browser storage</a>
-# Underscore and .md in the href addressed in later steps
+# Underscore e .md nell'href saranno gestiti successivamente.
 replace_internal_markdown_links_with_html_tags () {
-    # Appendix internal links.
+    # Appendice collegamenti interni.
     sed '/[\[^\[\]*](http[^\[]*\.md)/! s/\[\([^\[]*\)\]([^\[]*[ABCDEF]-\([^(]*\.md\))/<a href=\"#\2\">\1<\/a>/g' | \
-    # For all other internal links.
+    # Per tutti gli altri link interni.
     sed '/[\[^\[\]*](http[^\[]*\.md)/! s/\[\([^\[]*\)\]([^\[]*[0-9]\-\([^(]*\.md\))/<a href=\"#\2\">\1<\/a>/g' $1
 }
 
-# Replace Markdown links with fragment identifiers with html <a> tag.
-# Remove file path and keep fragment identifier alone.
-# Exclude urls start with http (Helps to exclude urls to external markdown files with fragment)
-# eg: [Identify Application Entry Points](06-Identify_Application_Entry_Points.md#v74-error-handling) ->
+# Sostituisce i collegamenti nel Markdown con identificatori di frammenti con il tag html <a>.
+# Rimuove il percorso del file e mantiene solo l'identificatore del frammento.
+# Esclude gli URL che iniziano con http (aiuta a escludere gli URL a file markdown esterni con frammenti).
+# esempio: [Identify Application Entry Points](06-Identify_Application_Entry_Points.md#v74-error-handling) ->
 #     <a href="#v74-error-handling">Identify Application Entry Points</a>
 replace_internal_markdown_links_having_fragments_with_html_tags () {
     sed '/[\[^\[\]*](http[^\[]*\.md#\([^\)]\+\))/! s/\[\([^\n]\+\)\]([^\n]\+.md#\([^\)]\+\))/<a href=\"#\2\">\1<\/a>/' | \
-    # Links with fragment identifiers alone
+    # Collegamenti con i soli identificatori di frammenti
     sed 's/\[\([^\[]\+\)\](#\([^\)]\+\))/<a href=\"#\2\">\1<\/a>/' $1
 }
 
-# Convert all chars inside href to lower case
-# Handles the href with .md extention ( Keeps this .md inside the href to identify internal markdown links)
+# Converte tutti i caratteri all'interno di href in minuscolo
+# Gestisce l'href con estensione .md (mantiene questo .md all'interno dell'href per identificare i collegamenti interni al markdown)
 convert_internal_markdown_href_to_lower_case () {
     python -c "import re; import sys; print(re.sub(r'href=\"(#[^\"]*\.md)\"', lambda m: m.group().lower(), sys.stdin.read()))"
 }
 
-# Replace the spaces and _ inside `href` values with hyphen
-# Handles the href with .md extention ( Keeps this .md inside the href to identify internal markdown links)
+# Sostituisce gli spazi e _ all'interno dei valori `href` con il trattino
+# Gestisce l'href con estensione .md (mantiene questo .md all'interno dell'href per identificare i collegamenti interni al markdown)
 replace_space_and_underscore_with_hyphen_in_internal_markdown_href () {
-    # Replace space and underscore
+    # Sostituisce gli spazi e i trattini bassi
     python -c "import re; import sys; print(re.sub(r'href=\"(#[^\"]*\.md)\"', lambda m: m.group().replace(' ', '-').replace('_', '-'), sys.stdin.read()))"
 }
 
-# Remove readme.md and .md extentions from href
-# This extention inside href used to identify the internal markdown links
+# Rimuove le estensioni readme.md e .md da href
+# Questa estensione all'interno di href è usata per identificare i collegamenti interni al markdown.
 remove_markdown_file_extention_from_href () {
-    # Remove readme.md
+    # Rimuove readme.md
     python -c "import re; import sys; print(re.sub(r'href=\"(#[^\"]*/readme\.md)\"', lambda m: m.group().replace('/readme.md', ''), sys.stdin.read()))"  | \
-    # Remove .md
+    # Rimuove .md
     python -c "import re; import sys; print(re.sub(r'href=\"(#[^\"]*\.md)\"', lambda m: m.group().replace('.md', ''), sys.stdin.read()))"
 }
 
-# Replace the spaces inside 'id' value with hyphen
+# Sostituisce gli spazi all'interno del valore 'id' con il trattino
 replace_space_with_hyphen_in_id () {
     python -c "import re; import sys; print(re.sub(r'id=\"([^\n]+)\"', lambda m: m.group().replace(' ', '-'), sys.stdin.read()))"
 }
 
-# Convert all chars inside id to lower case
+# Converte tutti i caratteri all'interno dell'id in minuscolo
 convert_id_to_lower_case () {
     python -c "import re; import sys; print(re.sub(r'id=\"([^\n]+)\"', lambda m: m.group().lower(), sys.stdin.read()))"
 }
 
-# Remove `:`, `,`, `.` inside id values
+# Rimuove `:`, `,`, `.` dai valori id interni
 remove_special_chars_from_id () {
     python -c "import re; import sys; print(re.sub(r'id=\"([^\n]+)\"', lambda m: m.group().replace(':', '').replace(':', '').replace('.', '').replace(',', ''), sys.stdin.read()))"
 }
 
-# Replace spaces with hyphen inside href value
+# Sostituisce gli spazi con il trattino all'interno del valore href
 replace_space_with_hyphen_in_href () {
     python -c "import re; import sys; print(re.sub(r'href=\"(#[^\"]*)\"', lambda m: m.group().replace(' ', '-'), sys.stdin.read()))"
 }
 
-# Convert all chars inside href to lower case
+# Converte tutti i caratteri all'interno di href in minuscolo
 convert_href_to_lower_case () {
     python -c "import re; import sys; print(re.sub(r'href=\"(#[^\"]*)\"', lambda m: m.group().lower(), sys.stdin.read()))"
 }
 
-# Move chapter number out of href links
+# Sposta il numero del capitolo dai link href
 remove_chapter_numbers_from_link () {
     sed 's/<h1 id=\"[0-9.]*-\(.*\)\">\(.*\)<\/h1>/<h1 id="\1">\2<\/h1>/' $1
 }
 
-# Preprocess markdown files to support internal links and image designs
+# Preelaborazione dei file markdown per supportare i collegamenti interni e i design delle immagini
 preprocess_markdown_to_support_md_to_pdf () {
     cat build/md/$1 | \
     replace_internal_markdown_links_with_in_headers_with_html_tags | \
     replace_internal_markdown_links_with_html_tags | \
-    # Sed section: Workaround to address the bug in duplicate fragment links in 4.1.
+    # Sezione Sed: Soluzione per risolvere il problema dei collegamenti a frammenti duplicati in 4.1.
     sed 's/\[\([^\n]\+\)\](#tools)/\1/i' |\
     sed 's/\[\([^\n]\+\)\](#references)/\1/i' |\
     sed 's/\[\([^\n]\+\)\](#Remediation)/\1/i' |\
@@ -167,7 +167,7 @@ prepare_build
 
 set_front_cover_vars
 
-# Create chapter wise markdown files
+# Crea file markdown divisi per capitoli
 ls build/md | sort -n | while read x; do  preprocess_markdown_to_support_md_to_pdf $x >  build/epub/$x ; done
 
 # Rimuove il file TOC
